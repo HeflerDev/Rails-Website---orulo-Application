@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import svgBathroom from '../../assets/images/svg/bathroom.svg'
@@ -34,61 +35,62 @@ const Case = props => {
   }
 
   return (
-    <div className="case">
-      <div 
-        style={picStyle}
-        className="display-img"
-      >
-        <div className="price queue column end">
-          <p>{`R$${min_price}`}</p>
-        </div>
-      </div>
-      <p>
-        <div className="finality">
-          <p>{finality}</p>
-        </div>
-        <div className="queue between">
-          <div> 
-            <span className="address-main">
-              {address.city},{' '}
-              {address.state}{' '}
-            </span>
-            <br />
-            <span className="address-secondary">
-              {address.street_type}{' '}
-              {address.street}{' '}
-              {address.area},{' '}
-            </span>
+    <Link to={`/profile/${id}`}>
+      <div className="case">
+        <div 
+          style={picStyle}
+          className="display-img"
+        >
+          <div className="price queue column end">
+            <p>{`R$${min_price}`}</p>
           </div>
-          <div className="status">
-            <div>
-              {status}
+        </div>
+        <p>
+          <div className="finality">
+            <p>{finality}</p>
+          </div>
+          <div className="queue between">
+            <div> 
+              <span className="address-main">
+                {address.city},{' '}
+                {address.state}{' '}
+              </span>
+              <br />
+              <span className="address-secondary">
+                {address.street_type}{' '}
+                {address.street}{' '}
+                {address.area},{' '}
+              </span>
+            </div>
+            <div className="status">
+              <div>
+                {status}
+              </div>
             </div>
           </div>
+        </p>
+        <div className="queue around">
+          <div queue column>
+            <img src={svgBedroom} alt="bed-icon" />
+            <div className="queue">{min_bedrooms}</div>
+          </div>
+          <div>
+            <img src={svgRuler} alt="ruler-icon" />
+            <div className="queue">{`${min_area}m²`}</div>
+          </div>
+          <div>
+            <img src={svgGarage} alt="garage-icon" />
+            <div className="queue">{min_parking}</div>
+          </div>
+          <div>
+            <img src={svgBathroom} alt="bathroom-icon" />
+            <div className="queue">{min_bathrooms}</div>
+          </div>
         </div>
-      </p>
-      <div className="queue around">
-        <div queue column>
-          <img src={svgBedroom} alt="bed-icon" />
-          <div className="queue">{min_bedrooms}</div>
-        </div>
-        <div>
-          <img src={svgRuler} alt="ruler-icon" />
-          <div className="queue">{`${min_area}m²`}</div>
-        </div>
-        <div>
-          <img src={svgGarage} alt="garage-icon" />
-          <div className="queue">{min_parking}</div>
-        </div>
-        <div>
-          <img src={svgBathroom} alt="bathroom-icon" />
-          <div className="queue">{min_bathrooms}</div>
-        </div>
+        <p>
+        </p>
       </div>
-      <p>
-      </p>
-
-    </div>
+    </Link>
   )
 
 }
