@@ -1,11 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
+import Navbar from './Navbar';
 
-export default (
+const Routes = () => (
   <BrowserRouter>
+    <Navbar />
     <Switch>
       <Route exact path="/" component={App} />
     </Switch>
   </BrowserRouter>
 );
+
+export default Routes;

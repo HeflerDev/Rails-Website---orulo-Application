@@ -1,7 +1,12 @@
 import React from 'react';
+import Showcase from '../containers/Showcase';
+import Header from './Header';
 
 const App = () => (
-  <p>Hello from React!</p>
+  <>
+    <Header />
+    <Showcase /> 
+  </>
 );
 
 export default App;
