@@ -10,6 +10,22 @@ header {
   padding: 0 !important;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 nav {
   background-color: black;
   padding: 0 1rem;
@@ -42,6 +58,62 @@ nav {
 .logo {
   height: 100%;
   width: 5rem;
+}
+
+form {
+  height: 5rem;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: auto !important;
+  background-color: orange;
+  h2  {
+    color: whitesmoke;
+  }
+  label {
+    height: 100%;
+    select {
+      border-radius: 5px;
+      border: none;
+      border-bottom: 3px solid orange;
+      height: 100%;
+      width: 100%;
+      background-color: whitesmoke;
+      color: darkslategray;
+    }
+  }
+  button {
+    background-color: whitesmoke;
+    color: blue;
+    border-radius: 5px !important;
+    font-weight: bold;
+    border: none;
+    border-bottom: 3px solid orange;
+    height: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    &:hover {
+      transition: 0.2s;
+      background-color: orange;
+      color: white;
+    }
+  }
+}
+
+.bottom-nav-container {
+  a {
+    margin: 2rem;
+    color: black;
+    background-color: orange;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    &:hover  {
+      transition: 0.2s;
+      transform: scale(1.2);
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+  }
 }
 
 p {
@@ -103,4 +175,14 @@ p {
 
 .status div {
   margin: auto 0;
+}
+
+#city {
+  width: 13rem;
+  margin: 0 2px;
+}
+
+#area {
+  width: 20rem;
+  margin: 0 2px;
 }

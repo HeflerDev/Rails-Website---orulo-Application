@@ -6,7 +6,7 @@ const Header = () => {
 
   const picStyle = {
     background: `
-      linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,0.6)), 
+      linear-gradient(to left, rgba(255,255,255,0), rgba(0,0,0,0.6)), 
       url(${pngHeader})
       no-repeat
       center
