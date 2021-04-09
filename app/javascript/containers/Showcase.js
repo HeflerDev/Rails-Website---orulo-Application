@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Case from '../components/Case';
+import fetchData from '../logic/fetchData';
 
-const Showcase = () => {
+const Showcase = ({ match: { params: { page } } }) => {
   const [stateData, setStateData] = useState({
     data: null,
     isLoading: true,
@@ -10,12 +13,7 @@ const Showcase = () => {
 
   useEffect(() => {
     setStateData({...stateData, isLoading: true});
-    fetch('https://www.orulo.com.br/api/v2/buildings', {
-      method: 'GET',
-      headers: {
-        Authorization: 'Bearer VDqfisFJS9-8yiLluw3fvII-lILi7WjHNjDGAg9jMbU'
-      },
-   })
+    fetchData.fromBuildings(page)
     .then(res => {
       if (res.ok) {
         return res.json();
@@ -28,7 +26,35 @@ const Showcase = () => {
       .catch((err) => {
         setStateData({...stateData, error: err, isLoading: false});
       });
-  }, []);
+  }, [page]);
+
+  const renderNavButtons = (current, total) => {
+    if (current > 1) {
+      if (current >= total) {
+        return (
+          <>
+            <Link to={`/query/${current - 1}`} >{ current - 1 }</Link>
+            <Link to={`/query/${current}`} >{ current }</Link>
+          </>
+        );
+      }
+      return (
+        <>
+          <Link to={`/query/${current - 1}`} >{ current - 1 }</Link>
+          <Link to={`/query/${current}`} >{ current }</Link>
+          <Link to={`/query/${current + 1}`}>{ current + 1}</Link>
+          <Link to={`/query/${total}`}>{ `...${total}` }</Link>
+        </>
+      )
+    }
+    return (
+      <>
+        <Link to={`/query/${current}`} >{ current }</Link>
+        <Link to={`/query/${current + 1}`}>{ current + 1}</Link>
+        <Link to={`/query/${total}`}>{ `...${total}` }</Link>
+      </>
+    );
+  }
 
   if (stateData.isLoading) {
     return <p>Loading...</p>
@@ -49,8 +75,27 @@ const Showcase = () => {
           ))
         }
       </div>
+      <div className="queue center bottom-nav-container">
+        { renderNavButtons(stateData.data.page, stateData.data.total_pages) }
+      </div>
     </div>
   );
+}
+
+Showcase.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      page: PropTypes.string,
+    }),
+  }),
+}
+
+Showcase.defaultProps = {
+  match: {
+      params: {
+        page: '1',
+      },
+    },
 }
 
 export default Showcase;
