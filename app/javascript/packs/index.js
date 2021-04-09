@@ -3,24 +3,15 @@
 // of the page.
 
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
-
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: PropTypes.string
-}
+import { render } from 'react-dom'
+import Routes from '../components/Routes';
+import 'csstack';
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
+  render(
+    <>
+      <Routes />
+    </>,
     document.body.appendChild(document.createElement('div')),
   )
 })
