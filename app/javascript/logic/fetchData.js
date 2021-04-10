@@ -1,6 +1,18 @@
 const authKey = 'Bearer VDqfisFJS9-8yiLluw3fvII-lILi7WjHNjDGAg9jMbU';
 
 const fetchData = {
+
+  findBuildingById(id) {
+    return (
+      fetch(`https://www.orulo.com.br/api/v2/buildings?building_ids[]=${id}`, {
+        method: 'GET',
+        headers: {
+          Authorization: authKey 
+        },
+      })
+    );
+  },
+
   fromBuildings(page) {   
     return (
       fetch(`https://www.orulo.com.br/api/v2/buildings?results_per_page=12&page=${page}`, {
