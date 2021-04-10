@@ -10,64 +10,61 @@ const SearchForm = () => {
 
   useEffect(() => {
     fetchData.fromAdressesCity('RS')
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           return res.json();
         }
         throw new Error();
       })
-      .then(data => setCities(data.cities))
-      .catch(err => console.error(err));
+      .then((data) => setCities(data.cities))
+      .catch((err) => console.error(err));
 
     fetchData.fromAdressesArea('RS', city)
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           return res.json();
         }
         throw new Error();
       })
-      .then(data => setAreas(data.areas))
-      .catch(err => console.error(err));
-    
+      .then((data) => setAreas(data.areas))
+      .catch((err) => console.error(err));
   }, [city]);
 
   // city
   // bairro
   // tipo
   // quartos
-  
+
   const loadCities = () => (cities ? (
-      <>
-        {
-          cities.map(item => (
+    <>
+      {
+          cities.map((item) => (
             <option key={item} value={item}>{item}</option>
           ))
         }
-      </>
-    ) : (
-      null
+    </>
+  ) : (
+    null
   ));
 
   const loadAreas = () => (areas ? (
-      <>
-        {
-          areas.map(item => (
+    <>
+      {
+          areas.map((item) => (
             <option key={item} value={item}>{item}</option>
           ))
         }
-      </>
-    ) : (
-      null
+    </>
+  ) : (
+    null
   ));
 
+  const handleCityChange = (event) => setCity(event.target.value);
+  const handleAreaChange = (event) => setArea(event.target.value);
 
-  const handleCityChange = event => setCity(event.target.value);
-  const handleAreaChange = event => setArea(event.target.value);
-
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('yay')
-  }
+  };
 
   return (
     <div className="board">
@@ -89,6 +86,6 @@ const SearchForm = () => {
       </form>
     </div>
   );
-}
+};
 
 export default SearchForm;

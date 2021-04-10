@@ -12,19 +12,19 @@ const Showcase = ({ match: { params: { page } } }) => {
   });
 
   useEffect(() => {
-    setStateData({...stateData, isLoading: true});
+    setStateData({ ...stateData, isLoading: true });
     fetchData.fromBuildings(page)
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      throw new Error('Couldn\'t Connect to the Api');
-    })
-    .then(data => {
-      setStateData({...stateData, data: data, isLoading: false });
-    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error('Couldn\'t Connect to the Api');
+      })
+      .then((data) => {
+        setStateData({ ...stateData, data, isLoading: false });
+      })
       .catch((err) => {
-        setStateData({...stateData, error: err, isLoading: false});
+        setStateData({ ...stateData, error: err, isLoading: false });
       });
   }, [page]);
 
@@ -33,35 +33,35 @@ const Showcase = ({ match: { params: { page } } }) => {
       if (current >= total) {
         return (
           <>
-            <Link to={`/query/${current - 1}`} >{ current - 1 }</Link>
-            <Link to={`/query/${current}`} >{ current }</Link>
+            <Link to={`/query/${current - 1}`}>{ current - 1 }</Link>
+            <Link to={`/query/${current}`}>{ current }</Link>
           </>
         );
       }
       return (
         <>
-          <Link to={`/query/${current - 1}`} >{ current - 1 }</Link>
-          <Link to={`/query/${current}`} >{ current }</Link>
+          <Link to={`/query/${current - 1}`}>{ current - 1 }</Link>
+          <Link to={`/query/${current}`}>{ current }</Link>
           <Link to={`/query/${current + 1}`}>{ current + 1}</Link>
           <Link to={`/query/${total}`}>{ `...${total}` }</Link>
         </>
-      )
+      );
     }
     return (
       <>
-        <Link to={`/query/${current}`} >{ current }</Link>
+        <Link to={`/query/${current}`}>{ current }</Link>
         <Link to={`/query/${current + 1}`}>{ current + 1}</Link>
         <Link to={`/query/${total}`}>{ `...${total}` }</Link>
       </>
     );
-  }
+  };
 
   if (stateData.isLoading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   if (stateData.error) {
-    return <p>Uh oh! An Error has Ocurred</p>
+    return <p>Uh oh! An Error has Ocurred</p>;
   }
 
   return (
@@ -80,7 +80,7 @@ const Showcase = ({ match: { params: { page } } }) => {
       </div>
     </div>
   );
-}
+};
 
 Showcase.propTypes = {
   match: PropTypes.shape({
@@ -88,14 +88,14 @@ Showcase.propTypes = {
       page: PropTypes.string,
     }),
   }),
-}
+};
 
 Showcase.defaultProps = {
   match: {
-      params: {
-        page: '1',
-      },
+    params: {
+      page: '1',
     },
-}
+  },
+};
 
 export default Showcase;

@@ -10,10 +10,14 @@ a {
   text-decoration: none !important;
 }
 
+ul {
+  list-style: none;
+  text-align: left;
+}
+
 header {
   padding: 0 !important;
 }
-
 
 nav {
   background-color: black;
@@ -49,8 +53,13 @@ nav {
 }
 
 .state-description {
-  font-size: 14px;
+  font-size: 13px;
+  color: darkslategray;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.profile-info {
+  
 }
 
 .h-100 {
@@ -196,6 +205,11 @@ p {
 }
 
 #map {
-  width: 20rem;
-  height: 20rem;
+  border-radius: 5px;
+  box-shadow: -1px 0 2px 2px gray;
+  padding: 2rem;
+  width: 100%;
+  max-width: 520px;
+  min-height: 280px;
+  max-height: 520px;
 }
