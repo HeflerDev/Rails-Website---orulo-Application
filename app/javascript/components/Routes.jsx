@@ -10,7 +10,7 @@ const Routes = () => (
     <Navbar />
     <Switch>
       <Route exact path="/" component={App} />
-      <Route path="/profile/:id" component={StateProfile} />
+      <Route path="/profiles/:id" component={StateProfile} />
       <Route path="/query/:page" component={Showcase} />
     </Switch>
   </BrowserRouter>

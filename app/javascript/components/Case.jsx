@@ -35,7 +35,7 @@ const Case = props => {
   }
 
   return (
-    <Link to={`/profile/${id}`}>
+    <Link to={`/profiles/${id}`}>
       <div className="case">
         <div 
           style={picStyle}
@@ -45,12 +45,12 @@ const Case = props => {
             <p>{`R$${min_price}`}</p>
           </div>
         </div>
-        <p>
+        <div>
           <div className="finality">
             <p>{finality}</p>
           </div>
           <div className="queue between">
-            <div> 
+            <div className="info"> 
               <span className="address-main">
                 {address.city},{' '}
                 {address.state}{' '}
@@ -68,7 +68,7 @@ const Case = props => {
               </div>
             </div>
           </div>
-        </p>
+        </div>
         <div className="queue around">
           <div queue column>
             <img src={svgBedroom} alt="bed-icon" />
@@ -87,8 +87,6 @@ const Case = props => {
             <div className="queue">{min_bathrooms}</div>
           </div>
         </div>
-        <p>
-        </p>
       </div>
     </Link>
   )
