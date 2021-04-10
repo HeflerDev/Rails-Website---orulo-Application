@@ -1,0 +1,215 @@
+// Place all the styles related to the Homepage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+h1 {
+  color: white;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+}
+
+header {
+  padding: 0 !important;
+}
+
+nav {
+  background-color: black;
+  padding: 0 1rem;
+  height: 15vh;
+}
+
+.header-text-container {
+  text-align: center;
+  color: whitesmoke;
+  margin: auto 3rem;
+  width: 40%;
+  padding: 1rem;
+  h2  {
+    font-size: 4rem; 
+  }
+  p  {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.profile-page {
+  img {
+    width: 520px;
+    max-height: 280px;
+    border-radius: 10px;
+  }
+}
+
+.state-description {
+  font-size: 13px;
+  color: darkslategray;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.profile-info {
+  
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.logo {
+  height: 100%;
+  width: 5rem;
+}
+
+form {
+  height: 5rem;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: auto !important;
+  background-color: orange;
+  h2  {
+    color: whitesmoke;
+  }
+  label {
+    height: 100%;
+    select {
+      border-radius: 5px;
+      border: none;
+      border-bottom: 3px solid orange;
+      height: 100%;
+      width: 100%;
+      background-color: whitesmoke;
+      color: darkslategray;
+    }
+  }
+  button {
+    background-color: whitesmoke;
+    color: blue;
+    border-radius: 5px !important;
+    font-weight: bold;
+    border: none;
+    border-bottom: 3px solid orange;
+    height: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    &:hover {
+      transition: 0.2s;
+      background-color: orange;
+      color: white;
+    }
+  }
+}
+
+.bottom-nav-container {
+  a {
+    margin: 2rem;
+    color: black;
+    background-color: orange;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    &:hover  {
+      transition: 0.2s;
+      transform: scale(1.2);
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+  }
+}
+
+p {
+  margin: 0 !important;
+  text-align: left;
+}
+
+.case-container {
+  padding: 2rem; 
+}
+
+.queue {
+  margin: 0 auto;
+}
+
+.info {
+  text-align: left;
+}
+
+.case {
+  // box-shadow: 1px 1px 2px 2px rgba(16, 16, 16, 0.3);
+  transition: 0.1s;
+  color: black;
+  text-decoration: none;
+  &:hover{
+    cursor: pointer;
+    transition: 0.2s;
+    transform: scale(1.03);
+  }
+}
+
+.finality {
+  position: relative;
+  bottom: 1rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  background-color: orange;
+  width: 50%;
+  color: white;
+  font-weight: bold;
+  p {
+    text-align: center;
+  }
+}
+
+.address-main {
+  font-weight: bold;
+}
+
+.price {
+  height: 100%;
+  text-align: left;
+  font-weight: 900;
+  color: white;
+  font-size: 1.5rem;
+  p {
+    margin-bottom: 1rem !important; 
+  }
+}
+
+.status {
+  font-weight: bold;
+  height: 100%;
+}
+
+.status div {
+  margin: auto 0;
+}
+
+#city {
+  width: 13rem;
+  margin: 0 2px;
+}
+
+#area {
+  width: 20rem;
+  margin: 0 2px;
+}
+
+#map {
+  border-radius: 5px;
+  box-shadow: -1px 0 2px 2px gray;
+  padding: 2rem;
+  width: 100%;
+  max-width: 520px;
+  min-height: 280px;
+  max-height: 520px;
+}
