@@ -28,7 +28,7 @@ Estas são as coisas que eu gostaria de ter mudado no projeto.
 
 ## Live Demo
 
-Talvez por não ter rodado uma build, a live demo está bem zoada, porém pode ser vista [aqui](https://oruloapp.herokuapp.com/)
+Talvez por não ter rodado uma build, a live demo está bem zoada, porém pode ser vista [aqui](https://oruloapp.herokuapp.com/). <br>
 Por favor, considere a versão de desenvolvimento como critério para avaliação.
 
 ## Iniciando o Projeto
