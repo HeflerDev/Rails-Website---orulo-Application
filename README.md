@@ -5,6 +5,17 @@
 
 Projeto que simula um site de imobiliária com features bem simples: Criação de usuário e favoritação de Imóvel.
 
+Apesar do projeto ser simples encontrei alguns problemas cujos meu tempo está esgotado para resolver, por exemplo:
+- O formulário de procura é ilustrativo.
+- Faz o processo de SignUp, mas a rota não redireciona o usuário para a root.
+- Ao curtir um imóvel, não atualiza imediatamente seu status.
+- Descurtir um imóvel não foi implementado.
+- Testes inexistentes: Embora eu goste de realizar testes, acabei optando por improvisar enquanto desenvolvia a aplicação.
+- Não possui página de contato e sobre
+- A lista de favoritos não está estilizada.
+
+Estas são as coisas que eu gostaria de ter mudado no projeto.
+
 ## Construído com
 
 - JavaScript
