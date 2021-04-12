@@ -13,6 +13,17 @@ const fetchData = {
     );
   },
 
+  findBuildingsById(string) {
+    return (
+      fetch(`https://www.orulo.com.br/api/v2/buildings?${string}`, {
+        method: 'GET',
+        headers: {
+          Authorization: authKey,
+        },
+      })
+    );
+  },
+
   fromBuildings(page) {
     return (
       fetch(`https://www.orulo.com.br/api/v2/buildings?results_per_page=12&page=${page}`, {

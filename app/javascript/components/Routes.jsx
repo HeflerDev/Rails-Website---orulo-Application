@@ -8,6 +8,7 @@ import Showcase from '../containers/Showcase';
 import StateProfile from '../containers/StateProfile';
 import Login from '../containers/Login';
 import Signup from '../containers/Signup';
+import Favorites from '../containers/Favorites';
 
 const Routes = (props) => {
   const [state, setState] = useState({
@@ -45,11 +46,12 @@ const Routes = (props) => {
     <BrowserRouter>
       <Navbar loggedInStatus={state.isLoggedIn} handleLogout={handleLogout} userInfo={state.user} />
       <Switch>
-        <Route exact path="/" render={(props) => (<App {...props} loggedInStatus={state.isLoggedIn} />)} />
+        <Route exact path="/" render={(props) => (<App {...props} loggedInStatus={state.isLoggedIn} userInfo={state.user} />)} />
         <Route exact path="/login" render={(props) => (<Login {...props} handleLogin={handleLogin} loggedInStatus={state.isLoggedIn} />)} />
         <Route exact path="/signup" render={(props) => (<Signup {...props} handleLogin={handleLogin} loggedInStatus={state.isLoggedIn} />)} />
         <Route path="/profiles/:id" component={StateProfile} />
-        <Route path="/query/:page" component={Showcase} />
+        <Route path="/query/:page" render={(props) => (<Showcase loggedInStatus={state.isLoggedIn} userInfo={state.user} { ...props } />)} />
+        <Route path="/favorites" component={Favorites} />
       </Switch>
     </BrowserRouter>
   );

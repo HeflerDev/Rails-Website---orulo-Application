@@ -3,13 +3,13 @@ import Showcase from '../containers/Showcase';
 import Header from './Header';
 import SearchForm from '../containers/SearchForm';
 
-const App = () => (
+const App = ({ loggedInStatus, userInfo }) => (
   <>
     <Header />
     <div className="stack">
       <SearchForm />
     </div>
-    <Showcase />
+    <Showcase loggedInStatus={loggedInStatus} userInfo={userInfo} />
   </>
 );
 

@@ -5,7 +5,13 @@ import Case from '../components/Case';
 import Like from '../components/Like';
 import fetchData from '../logic/fetchData';
 
-const Showcase = ({ match: { params: { page } } }) => {
+const Showcase = (props) => {
+  console.log(props)
+
+  const { loggedInStatus } = props;
+  const { userInfo } = props;
+
+  const { match: { params: { page } } } = props;
   const [stateData, setStateData] = useState({
     data: null,
     isLoading: true,
@@ -65,13 +71,21 @@ const Showcase = ({ match: { params: { page } } }) => {
     return <p>Uh oh! An Error has Ocurred</p>;
   }
 
+  const allowLike = (data) => (loggedInStatus ? (
+    <Like data={data} userInfo={userInfo} />
+  ) : (
+    null
+  ));
+
+
+
   return (
     <div className="stack">
       <div className="board">
         {
           stateData.data.buildings.map((data) => (
             <div id={data.id} key={data.id} className="col-12 col-l-3 case-container">
-              <Like data={data} />
+              { allowLike(data) }
               <Case data={data} />
             </div>
           ))
