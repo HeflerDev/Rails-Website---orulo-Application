@@ -37,6 +37,7 @@ Live Demo indisponível para o projeto.
 - PostgreSql [Documentação](https://www.postgresql.org/docs/)
 - Ruby '3.0.1'
 - Git
+- yarn
 
 ### Setup
 
@@ -45,7 +46,9 @@ Live Demo indisponível para o projeto.
 
 - No Root do projeto, execute: <br>
 `bundle install` <br>
-Isto instalará as dependências necessárias para rodar o projeto. <br>
+- Logo Depois: <br>
+`yarn`<br>
+Isto instalará as dependências do Rails e do React necessárias para rodar o projeto. <br>
 
 - Execute o comando: <br>
 `rails db:create db:migrate` <br>
