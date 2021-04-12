@@ -68,7 +68,7 @@ const SearchForm = () => {
 
   return (
     <div className="board">
-      <form className="col-6" onSubmit={handleSubmit}>
+      <form className="col-6 search-form" onSubmit={handleSubmit}>
         <h2>Encontre aqui seu imóvel</h2>
         <label htmlFor="city">
           <select id="city" onChange={handleCityChange} name="city">

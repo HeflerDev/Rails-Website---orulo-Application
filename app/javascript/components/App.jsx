@@ -9,7 +9,7 @@ const App = () => (
     <div className="stack">
       <SearchForm />
     </div>
-    <Showcase /> 
+    <Showcase />
   </>
 );
 

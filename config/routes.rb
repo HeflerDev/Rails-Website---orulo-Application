@@ -7,6 +7,11 @@ Rails.application.routes.draw do
       delete '/destroy/:id', to: 'users#destroy'
     end
   end
+
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/logged_in', to: 'sessions#is_logged_in?'
+
   root 'homepage#index'
   get '/*path' => 'homepage#index'
 

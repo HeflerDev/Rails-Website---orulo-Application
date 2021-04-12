@@ -2,8 +2,8 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
-import React from 'react'
-import { render } from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
 import Routes from '../components/Routes';
 import 'csstack';
 
@@ -13,5 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
       <Routes />
     </>,
     document.body.appendChild(document.createElement('div')),
-  )
-})
+  );
+});

@@ -5,7 +5,7 @@ import svgLogo from '../../assets/images/svg/logo.svg';
 
 const Navbar = () => (
   <nav className="board queue between">
-    <Link to="/" className= "col-l-3 queue">
+    <Link to="/" className="col-l-3 queue">
       <img className="logo" src={svgLogo} alt="" />
       <h1 className="queue column center">Imobiliária Fulano</h1>
     </Link>
@@ -18,6 +18,9 @@ const Navbar = () => (
       </Link>
       <Link to="/login" className="btn-header">
         Login
+      </Link>
+      <Link to="/signup" className="btn-header">
+        Inscrever-se
       </Link>
     </div>
   </nav>

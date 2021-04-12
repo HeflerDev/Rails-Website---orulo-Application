@@ -44,6 +44,39 @@ nav {
   margin: auto;
 }
 
+.signup-form {
+  margin: auto;
+  text-align: center !important;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: auto !important;
+  background-color: orange;
+  width:25% !important;
+  h2  {
+    color: whitesmoke;
+  }
+  label {
+    height: 100%;
+  }
+  button {
+    background-color: whitesmoke;
+    color: blue;
+    border-radius: 5px !important;
+    font-weight: bold;
+    border: none;
+    border-bottom: 3px solid orange;
+    height: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    &:hover {
+      transition: 0.2s;
+      background-color: orange;
+      color: white;
+    }
+  }
+
+}
+
 .profile-page {
   img {
     width: 520px;
@@ -71,7 +104,7 @@ nav {
   width: 5rem;
 }
 
-form {
+.search-form {
   height: 5rem;
   border-radius: 4px;
   padding: 1rem;

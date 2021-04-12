@@ -7,20 +7,20 @@ const fetchData = {
       fetch(`https://www.orulo.com.br/api/v2/buildings?building_ids[]=${id}`, {
         method: 'GET',
         headers: {
-          Authorization: authKey 
+          Authorization: authKey,
         },
       })
     );
   },
 
-  fromBuildings(page) {   
+  fromBuildings(page) {
     return (
       fetch(`https://www.orulo.com.br/api/v2/buildings?results_per_page=12&page=${page}`, {
         method: 'GET',
         headers: {
-          Authorization: authKey 
+          Authorization: authKey,
         },
-       })
+      })
     );
   },
 
@@ -29,7 +29,7 @@ const fetchData = {
       fetch(`https://www.orulo.com.br/api/v2/addresses/cities?state=${state}`, {
         method: 'GET',
         headers: {
-          Authorization: authKey
+          Authorization: authKey,
         },
       })
     );
@@ -40,11 +40,11 @@ const fetchData = {
       fetch(`https://www.orulo.com.br/api/v2/addresses/areas?state=${state}&city=${city}`, {
         method: 'GET',
         headers: {
-          Authorization: authKey
+          Authorization: authKey,
         },
       })
     );
-  }
-}
+  },
+};
 
 export default fetchData;

@@ -6,7 +6,6 @@ import 'csstack';
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Routes />,
-    document.body.appendChild(document.createElement('div'))
-  )
+    document.body.appendChild(document.createElement('div')),
+  );
 });
-
