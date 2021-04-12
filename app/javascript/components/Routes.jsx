@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +8,6 @@ import Showcase from '../containers/Showcase';
 import StateProfile from '../containers/StateProfile';
 import Login from '../containers/Login';
 import Signup from '../containers/Signup';
-import NewUserForm from '../containers/NewUserForm';
 
 const Routes = (props) => {
   const [state, setState] = useState({
@@ -18,7 +18,7 @@ const Routes = (props) => {
   const handleLogin = (data) => {
     setState({
       isLoggedIn: true,
-      user: data.user,
+      user: data,
     });
   };
 
@@ -33,21 +33,21 @@ const Routes = (props) => {
     axios.get('http://localhost:3001/logged_in', { withCredentials: true })
       .then((res) => {
         if (res.data.logged_in) {
-          handleLogin(res);
+          handleLogin(res.data);
         } else {
           handleLogout();
         }
       })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar loggedInStatus={state.isLoggedIn} handleLogout={handleLogout} userInfo={state.user} />
       <Switch>
-        <Route exact path="/" render={() => (<App loggedInStatus={state.isLoggedIn} /> )} />
-        <Route exact path="/login" render={() => ( <Login handleLogin={handleLogin} loggedInStatus={state.isLoggedIn} /> )} />
-        <Route exact path="/signup" render={() => ( <Signup handleLogin={handleLogin} loggedInStatus={state.isLoggedIn} /> )} />
-        // <Route exact path="/user" component={NewUserForm} />
+        <Route exact path="/" render={(props) => (<App {...props} loggedInStatus={state.isLoggedIn} />)} />
+        <Route exact path="/login" render={(props) => (<Login {...props} handleLogin={handleLogin} loggedInStatus={state.isLoggedIn} />)} />
+        <Route exact path="/signup" render={(props) => (<Signup {...props} handleLogin={handleLogin} loggedInStatus={state.isLoggedIn} />)} />
         <Route path="/profiles/:id" component={StateProfile} />
         <Route path="/query/:page" component={Showcase} />
       </Switch>

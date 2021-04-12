@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import pngBg from '../../assets/images/png/login_background.png';
+
 const Login = (props) => {
   const [state, setState] = useState({
-    username: '',
+    name: '',
     password: '',
     errors: '',
   });
@@ -12,7 +14,7 @@ const Login = (props) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setState({
-      [name]: value,
+      ...state, [name]: value,
     });
   };
 
@@ -20,11 +22,15 @@ const Login = (props) => {
     props.history.push('/');
   };
 
+  useEffect(() => {
+    return props.loggedInStatus ? redirect() : null
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { username, password } = state;
+    const { name, password } = state;
     const user = {
-      username,
+      name,
       password,
     };
 
@@ -35,12 +41,13 @@ const Login = (props) => {
           redirect();
         } else {
           setState({
-            errors: response.data.errors,
+            ...state, errors: response.data.errors,
           });
         }
       })
       .catch((error) => console.log('api errors:', error));
   };
+
   const handleErrors = () => (
     <div>
       <ul>
@@ -49,16 +56,26 @@ const Login = (props) => {
     </div>
   );
 
-  const { username, password } = state;
+  const picStyle = {
+    background: `
+      url(${pngBg})
+      no-repeat
+      center
+    `,
+    backgroundSize: 'cover',
+    height: '85vh',
+  }
+
+  const { name, password } = state;
   return (
-    <div>
+    <div style={picStyle}>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit} className="signup-form stack">
         <input
-          placeholder="username"
+          placeholder="name"
           type="text"
-          name="username"
-          value={username}
+          name="name"
+          value={name}
           onChange={handleChange}
         />
         <input

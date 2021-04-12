@@ -91,8 +91,11 @@ nav {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.profile-info {
-  
+.like-btn{
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 }
 
 .h-100 {

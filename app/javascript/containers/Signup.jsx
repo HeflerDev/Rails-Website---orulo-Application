@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
+import pngBg from '../../assets/images/png/login_background.png';
 
 const Signup = (props) => {
   const [state, setState] = useState({
@@ -10,8 +12,12 @@ const Signup = (props) => {
   });
 
   const redirect = () => {
-    props.history.push('/login');
+    props.history.push('/');
   };
+
+  useEffect(() => {
+    return props.loggedInStatus ? redirect() : null
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -51,9 +57,20 @@ const Signup = (props) => {
     </div>
   );
 
+
+  const picStyle = {
+    background: `
+      url(${pngBg})
+      no-repeat
+      center
+    `,
+    backgroundSize: 'cover',
+    height: '85vh',
+  }
+
   const { name, password, password_confirmation } = state;
   return (
-    <div>
+    <div style={picStyle}>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit} className="signup-form stack">
         <input

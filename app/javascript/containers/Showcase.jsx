@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Case from '../components/Case';
+import Like from '../components/Like';
 import fetchData from '../logic/fetchData';
 
 const Showcase = ({ match: { params: { page } } }) => {
@@ -69,7 +70,8 @@ const Showcase = ({ match: { params: { page } } }) => {
       <div className="board">
         {
           stateData.data.buildings.map((data) => (
-            <div key={data.id} className="col-12 col-l-3 case-container">
+            <div id={data.id} key={data.id} className="col-12 col-l-3 case-container">
+              <Like data={data} />
               <Case data={data} />
             </div>
           ))

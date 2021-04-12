@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import svgSuite from '../../assets/images/svg/suite.svg';
 import svgBathroom from '../../assets/images/svg/bathroom.svg';
 import svgBedroom from '../../assets/images/svg/bedroom.svg';
 import svgGarage from '../../assets/images/svg/garage.svg';
@@ -10,7 +11,6 @@ import svgRuler from '../../assets/images/svg/ruler.svg';
 const Case = (props) => {
   const {
     id,
-    name,
     min_price,
     min_bedrooms,
     min_area,
@@ -22,6 +22,11 @@ const Case = (props) => {
     address,
     default_image,
   } = props.data;
+
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
 
   const picStyle = {
     backgroundImage:
@@ -42,7 +47,7 @@ const Case = (props) => {
           className="display-img"
         >
           <div className="price queue column end">
-            <p>{`R$${min_price}`}</p>
+            <p>{formatter.format(min_price)}</p>
           </div>
         </div>
         <div>
@@ -92,6 +97,10 @@ const Case = (props) => {
           <div>
             <img src={svgBathroom} alt="bathroom-icon" />
             <div className="queue">{min_bathrooms}</div>
+          </div>
+          <div>
+            <img src={svgSuite} alt="suites-icon" />
+            <div className="queue">{min_suites}</div>
           </div>
         </div>
       </div>
